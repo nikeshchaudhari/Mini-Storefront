@@ -57,11 +57,44 @@ const Navbar = () => {
                 <CloseOutlinedIcon />
               </>
             ) : (
-              <MenuOutlinedIcon />
+              <MenuOutlinedIcon  />
             )}
           </div>
         </div>
       </div>
+      {/* Mobile View */}
+      <div >
+        {isOpen &&(
+            <div className={`bg-black/5 w-[100vw] h-[200px] fixed right-0 
+    ${isOpen ? "top-20 opacity-100" : "-top-60 opacity-0"}
+  `}>
+                <div className="flex flex-col gap-2 ml-8 mt-5">
+                    <NavLink to="/home" className={({isActive})=>{
+                        return isActive ?"text-[#1077A3]" : "text-black"
+                    }}>
+                        Home
+                    </NavLink>
+                    <NavLink to="/shop" className={({isActive})=>{
+                        return isActive ?"text-[#1077A3]" : "text-black"
+                    }}>
+                        Shop
+                    </NavLink>
+                    <NavLink to="/about" className={({isActive})=>{
+                        return isActive ?"text-[#1077A3]" : "text-black"
+                    }}>
+                        About
+                    </NavLink>
+                    <NavLink to="/contact-us" className={({isActive})=>{
+                        return isActive ?"text-[#1077A3]" : "text-black"
+                    }}>
+                        Contact Us
+                    </NavLink>
+                </div>
+
+            </div>
+        )}
+      </div>
+
     </>
   );
 };
