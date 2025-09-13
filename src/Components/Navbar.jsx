@@ -48,19 +48,19 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </div>
-        <div className="mr-5 md:mr-20">
+        <div className="mr-5 md:mr-20 flex gap-5">
           <LocalMallOutlinedIcon />
+          {/* Hamburger */}
+          <div onClick={() => setIsOpen(!isOpen)} className="md:hidden ">
+            {isOpen ? (
+              <>
+                <CloseOutlinedIcon />
+              </>
+            ) : (
+              <MenuOutlinedIcon />
+            )}
+          </div>
         </div>
-      </div>
-      {/* Hamburger */}
-      <div>
-        {isOpen ? (
-          <>
-            <CloseOutlinedIcon />
-          </>
-        ) : (
-          <MenuOutlinedIcon />
-        )}
       </div>
     </>
   );
