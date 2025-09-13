@@ -22,18 +22,18 @@ const TrendProduct = () => {
   return (
     <div className="overflow-hidden">
       <>
-        <h1 className=" text-center mt-5 text-[30px] font-bold">Trending Products</h1>
-        <div className="flex justify-center gap-2">
+        <h1 className=" text-center mt-5 text-[20px] md:text-[30px] font-bold">Trending Products</h1>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5">
             {items.map((i)=>(
-                <div key={i.id} className="flex flex-col  items-center justify-center bg-white shadow-2xl w-[300px] ">
+                <div key={i.id} className=" bg-white shadow rounded p-2 ">
                    
-                   <div className=" w-[300px] flex justify-center">
-                     <img src={i.image} alt={i.title} className="w-[200px] p-2"/>
+                   <div className="flex justify-center">
+                     <img src={i.image} alt={i.title} className="w-[200px] p-2 cursor-pointer transition transform hover:-translate-y-2  hover:duration-700"/>
                    </div>
-                   <div className="flex flex-col w-50">
-                    <h3>{i.title}</h3>
-                    <p>Price : <span>{i.price}</span></p>
-                    <p>{i.price}</p>
+                   <div className="flex flex-col p-5">
+                    <h3 className="line-clamp-1">{i.title}</h3>
+                    <p>Price : {i.price}</p>
+                    <p>Rating : {i.rating?.rate}</p>
                    </div>
                 </div>
             ))}
