@@ -34,12 +34,12 @@ const Slider = () => {
         </div>
       </div>
 
-      <button className="absolute top-1/2 left-2 -translate-y-1/2 md:left-4 lg:left-6 bg-black/40 text-white p-2 rounded-full z-10 cursor-pointer" onClick={prev}>
+      <button className="absolute top-1/5 md:top-1/4 lg:top-1/2  left-2 -translate-y-1/2 md:left-4 lg:left-6 bg-black/40 text-white p-2 rounded-full z-10 cursor-pointer" onClick={prev}>
         <ArrowBackIosNewOutlinedIcon className="text-[40px] " />
       </button>
-      <button className="absolute top-1/2 right-2 -translate-y-1/2 md:right-4 lg:right-6 bg-black/40 text-white p-2 rounded-full z-10 cursor-pointer" onClick={next}>
+      <button className="absolute top-1/5 md:top-1/4 lg:top-1/2  right-2 -translate-y-1/2 md:right-4 lg:right-6 bg-black/40 text-white p-2 rounded-full z-10 cursor-pointer" onClick={next}>
     
-      
+          
         <ArrowForwardIosOutlinedIcon />
       </button>
     </>
