@@ -13,7 +13,7 @@ const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
 
   return (
     <>
-      <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center sticky z-100">
+      <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center sticky top-0 z-100">
         <div className="ml-5">
           <Link to="/home">
             {" "}
