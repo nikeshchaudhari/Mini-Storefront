@@ -3,8 +3,14 @@ import { Link, NavLink } from "react-router-dom";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import cartStore from "../store/store";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const cart = cartStore((state) => state.cart) ||[];
+const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+    console.log(totalCart);
+
   return (
     <>
       <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center sticky z-100">
@@ -48,8 +54,14 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </div>
-        <div className="mr-5 md:mr-20 flex gap-5">
+        <div className="mr-5 md:mr-20 flex gap-5 relative">
           <LocalMallOutlinedIcon />
+          {totalCart > 0 && (
+            <span className="absolute bottom-3 -right-4 rounded-full w-full  text-center bg-black text-white">
+              {totalCart}
+            </span>
+          )}
+
           {/* Hamburger */}
           <div onClick={() => setIsOpen(!isOpen)} className="md:hidden ">
             {isOpen ? (
