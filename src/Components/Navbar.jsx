@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center fixed top-0  z-10">
+      <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center fixed top-0  z-100">
         <div className="ml-5">
           <Link to="/home">
             {" "}
@@ -24,12 +24,12 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/shop"
+            to="/catalog"
             className={({ isActive }) => {
               return isActive ? "text-[#1077A3]" : "text-black";
             }}
           >
-            Shop
+            Catalog
           </NavLink>
           <NavLink
             to="/about"
@@ -57,44 +57,57 @@ const Navbar = () => {
                 <CloseOutlinedIcon />
               </>
             ) : (
-              <MenuOutlinedIcon  />
+              <MenuOutlinedIcon />
             )}
           </div>
         </div>
       </div>
       {/* Mobile View */}
-      <div >
-        {isOpen &&(
-            <div className={`bg-black/5 w-[100vw] h-[200px] fixed right-0 
+
+      {isOpen && (
+        <div className="bg-black/70 w-screen h-full fixed z-50">
+          <div
+            className={`bg-black w-[60vw] h-[100vh] fixed right-0 
     ${isOpen ? "top-20 opacity-100" : "-top-60 opacity-0"}
-  `}>
-                <div className="flex flex-col gap-2 ml-8 mt-5">
-                    <NavLink to="/home" className={({isActive})=>{
-                        return isActive ?"text-[#1077A3]" : "text-black"
-                    }}>
-                        Home
-                    </NavLink>
-                    <NavLink to="/shop" className={({isActive})=>{
-                        return isActive ?"text-[#1077A3]" : "text-black"
-                    }}>
-                        Shop
-                    </NavLink>
-                    <NavLink to="/about" className={({isActive})=>{
-                        return isActive ?"text-[#1077A3]" : "text-black"
-                    }}>
-                        About
-                    </NavLink>
-                    <NavLink to="/contact-us" className={({isActive})=>{
-                        return isActive ?"text-[#1077A3]" : "text-black"
-                    }}>
-                        Contact Us
-                    </NavLink>
-                </div>
-
+  `}
+          >
+            <div className="flex flex-col gap-2 ml-8 mt-5">
+              <NavLink
+                to="/home"
+                className={({ isActive }) => {
+                  return isActive ? "text-[#1077A3]" : "text-white";
+                }}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/catalog"
+                className={({ isActive }) => {
+                  return isActive ? "text-[#1077A3]" : "text-white";
+                }}
+              >
+                Catalog
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => {
+                  return isActive ? "text-[#1077A3]" : "text-white";
+                }}
+              >
+                About
+              </NavLink>
+              <NavLink
+                to="/contact-us"
+                className={({ isActive }) => {
+                  return isActive ? "text-[#1077A3]" : "text-white";
+                }}
+              >
+                Contact Us
+              </NavLink>
             </div>
-        )}
-      </div>
-
+          </div>
+        </div>
+      )}
     </>
   );
 };
