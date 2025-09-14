@@ -13,6 +13,8 @@ const Catalog = () => {
   const [rowPage, setRowPage] = useState(12);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [category, setCategory] = useState("");
+
   useEffect(() => {
     const dataFetch = async () => {
       try {
@@ -34,7 +36,13 @@ const Catalog = () => {
     console.log(price);
     const min = minPrice === "" ? 0 : parseInt(minPrice);
     const max = maxPrice === "" ? Infinity : parseInt(maxPrice);
-    return price >= min && price <= max;
+    const categoryMatch = category ? item.category === category : true;
+    console.log(categoryMatch);
+
+    const matchPrice = price >= min && price <= max;
+    console.log(matchPrice);
+    
+    return matchPrice && categoryMatch;
   });
   //   paginataion
   const indexOfLastItem = currentPage * rowPage;
@@ -50,7 +58,11 @@ const Catalog = () => {
         </h1>
         <div className="flex mt-10 mr-5">
           <div>
-            <Sidebar setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} />
+            <Sidebar
+              setMinPrice={setMinPrice}
+              setMaxPrice={setMaxPrice}
+              setCategory={setCategory}
+            />
           </div>
 
           {loading ? (
