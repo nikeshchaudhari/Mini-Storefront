@@ -4,12 +4,14 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import cartStore from "../store/store";
+import Cart from "../Pages/Cart";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const cart = cartStore((state) => state.cart) ||[];
-const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-    console.log(totalCart);
+  const[cartOpen,setCartOpen]= useState(false)
+  const cart = cartStore((state) => state.cart);
+  const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  console.log(totalCart);
 
   return (
     <>
@@ -55,9 +57,10 @@ const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
           </NavLink>
         </div>
         <div className="mr-5 md:mr-20 flex gap-5 relative">
-          <LocalMallOutlinedIcon />
+          <LocalMallOutlinedIcon className="cursor-pointer" onClick={()=>setCartOpen(true)}/>
+            <Cart cartOpen={cartOpen} cartClose={()=>setCartOpen(false)}/>
           {totalCart > 0 && (
-            <span className="absolute bottom-3 -right-4 rounded-full w-full  text-center bg-black text-white">
+            <span className="absolute bottom-4 right-10 md:bottom-3  md:-right-4 rounded-full md:w-full  text-center bg-black text-white">
               {totalCart}
             </span>
           )}

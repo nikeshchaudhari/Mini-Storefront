@@ -10,13 +10,13 @@ const localStore = () => {
 };
 const cartStore = create((set) => ({
   cart: localStore(),
-  addCart: (item) => {
+  addCart: (item,qty  ) => {
     set((state) => {
       const alreadyAdd = state.cart.find((p) => p.id === item.id);
       let newCart;
       if (alreadyAdd) {
         newCart = state.cart.map((p) =>
-          p.id === item.id ? { ...p, quantity: p.quantity + item.quantity } : p
+          p.id === item.id ? { ...p, quantity: p.quantity + qty } : p
         );
       } else {
         newCart = [...state.cart, item];

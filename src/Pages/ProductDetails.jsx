@@ -16,7 +16,7 @@ const ProductDetails = () => {
   const cart = cartStore((state) => state.cart);
 
   console.log(cart);
-  
+
   useEffect(() => {
     const dataFetch = async () => {
       try {
@@ -38,28 +38,27 @@ const ProductDetails = () => {
   }
 
   const handleIncrease = () => {
-    setQuantity((p) =>Math.min(p+1,10) );
+    setQuantity((p) => Math.min(p + 1, 10));
   };
-  const handleDecrease =()=>{
-    setQuantity((sub)=>Math.max(sub-1,1))
-  }
-  const handleAddCart =()=>{
-    addCart({...products,quantity})
+  const handleDecrease = () => {
+    setQuantity((sub) => Math.max(sub - 1, 1));
+  };
+  const handleAddCart = () => {
+    addCart({ ...products, quantity });
     console.log(quantity);
 
-    const alreadyAdd = cart.find((f)=>f.id===products.id)
-    if(alreadyAdd){
-      toast.error("Already Add Products..")
-    }else{
-      toast.success("Add to cart")
+    const alreadyAdd = cart.find((f) => f.id === products.id);
+    if (alreadyAdd) {
+      toast.error("Already Add Products..");
+    } else {
+      toast.success("Add to cart");
     }
-    
-  }
+  };
   return (
     <>
       <Navbar />
       <div className="md:flex md:mx-10 mt-10 overflow-hidden ">
-        <div className="md:shadow-2xl w-full md:w-[500px] flex justify-center p-2">
+        <div className="md:shadow border border-black/5 rounded w-full md:w-[500px] flex justify-center p-2 ">
           <img
             src={products.image}
             alt=""
@@ -79,20 +78,32 @@ const ProductDetails = () => {
           <p>{products.description}</p>
           <div className="flex justify-between   p-2 w-70 mt-2 cursor-pointer items-center">
             <div className="flex gap-5 justify-between items-center shadow p-2">
-              <div className="hover:bg-black/5 p-1 rounded" onClick={handleDecrease}>
+              <div
+                className="hover:bg-black/5 p-1 rounded"
+                onClick={handleDecrease}
+              >
                 <RemoveIcon />
               </div>
               <span>{quantity}</span>
 
               <div
-                className="hover:bg-black/5 p-1 rounded"
+                className={`hover:bg-black/5 p-1 rounded 
+                  }`}
                 onClick={handleIncrease}
               >
                 <AddIcon />
               </div>
             </div>
             <div>
-              <button className="bg-red-700 p-2 text-white cursor-pointer hover:bg-red-900 transition hover:duration-700" onClick={handleAddCart}>
+              <button
+                className={` p-2 text-white cursor-pointer transition hover:duration-700 ${
+                  products.rating.count === 0
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-red-700 hover:bg-red-900"
+                }`}
+                disabled={products.rating.count === 0}
+                onClick={handleAddCart}
+              >
                 <h4>Add to Cart</h4>
               </button>
             </div>
