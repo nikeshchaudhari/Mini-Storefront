@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center fixed top-0  z-100">
+      <div className="w-full h-20 bg-[#f8f9fa] flex justify-between items-center sticky z-100">
         <div className="ml-5">
           <Link to="/home">
             {" "}
