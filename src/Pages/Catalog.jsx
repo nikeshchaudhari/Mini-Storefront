@@ -11,7 +11,8 @@ const Catalog = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rowPage, setRowPage] = useState(12);
-
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
   useEffect(() => {
     const dataFetch = async () => {
       try {
@@ -27,11 +28,19 @@ const Catalog = () => {
     };
     dataFetch();
   }, []);
+  //   filter
+  const filterItems = products.filter((item) => {
+    const price = item.price;
+    console.log(price);
+    const min = minPrice === "" ? 0 : parseInt(minPrice);
+    const max = maxPrice === "" ? Infinity : parseInt(maxPrice);
+    return price >= min && price <= max;
+  });
   //   paginataion
   const indexOfLastItem = currentPage * rowPage;
   const indexOfFirstItem = indexOfLastItem - rowPage;
-  const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(products.length / rowPage);
+  const currentItems = filterItems.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filterItems.length / rowPage);
   return (
     <>
       <Navbar />
@@ -41,7 +50,7 @@ const Catalog = () => {
         </h1>
         <div className="flex mt-10 mr-5">
           <div>
-            <Sidebar />
+            <Sidebar setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} />
           </div>
 
           {loading ? (
@@ -69,7 +78,7 @@ const Catalog = () => {
                     <div>
                       <h3 className="line-clamp-1">{items.title}</h3>
                       <p>Price : {items.price}</p>
-                      <p>Rating : {items.rating?.rate}</p>
+                      <p>Category : {items.category}</p>
                     </div>
                   </div>
                 ))}
@@ -78,13 +87,26 @@ const Catalog = () => {
           )}
         </div>
         <div className="flex justify-end mx-12 mb-5 gap-5 items-center">
-          <button className="bg-[#1077A3] p-1 w-15 text-white disabled:opacity-50 cursor-pointer"  disabled={currentPage===1} onClick={()=> setCurrentPage((prev)=>Math.max(prev-1,1))}>
+          <button
+            className="bg-[#1077A3] p-1 w-15 text-white disabled:opacity-50 cursor-pointer"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          >
             Prev
-            </button>{" "}
-            <span> {currentPage}.... {totalPages}</span>
-            <button  className="bg-[#1077A3] p-1 w-15 text-white disabled:opacity-50 cursor-pointer" disabled={currentPage===totalPages} onClick={()=>setCurrentPage((next)=>Math.min(next+1,totalPages))}>
-                Next
-            </button>
+          </button>{" "}
+          <span>
+            {" "}
+            {currentPage}.... {totalPages}
+          </span>
+          <button
+            className="bg-[#1077A3] p-1 w-15 text-white disabled:opacity-50 cursor-pointer"
+            disabled={currentPage === totalPages}
+            onClick={() =>
+              setCurrentPage((next) => Math.min(next + 1, totalPages))
+            }
+          >
+            Next
+          </button>
         </div>
       </div>
     </>
