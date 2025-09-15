@@ -24,7 +24,7 @@ const Contact = () => {
        
         <div className="md:flex justify-between mx-5 md:mx-auto max-w-[1200px] items-start gap-10">
     
-          <div className="flex-1">
+          <div className="flex-grow">
             <h1 className="text-[30px] font-bold mb-5">Send us Message</h1>
             <div className="flex flex-col gap-5">
               <div className="flex gap-3 items-center w-full max-w-[250px]">
@@ -53,7 +53,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex-1 mt-10 md:mt-0">
+          <div className="flex-grow mt-10 md:mt-0">
             <form className="flex flex-col gap-3 max-w-[400px] w-full">
               <label>Name*</label>
               <input type="text" className="border p-2 w-full" />
