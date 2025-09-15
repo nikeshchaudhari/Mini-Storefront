@@ -6,6 +6,7 @@ import Navbar from "../Components/Navbar";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { toast } from "react-toastify";
+import { Footer } from "./Footer";
 const ProductDetails = () => {
   const { id } = useParams();
   console.log(id[0]);
@@ -31,8 +32,8 @@ const ProductDetails = () => {
   }, [id]);
   if (!products) {
     return (
-      <div>
-        <h1>Loading....</h1>
+      <div className="flex justify-center h-screen items-center">
+        <h1 className="text-[20px] animate-ping font-bold">Loading....</h1>
       </div>
     );
   }
@@ -56,7 +57,10 @@ const ProductDetails = () => {
   return (
     <>
       <Navbar />
-      <div className="md:flex md:mx-10 mt-10 overflow-hidden ">
+      <div className="min-h-screen">
+
+      
+      <div className="md:flex md:mx-10 mt-10 overflow-hidden   ">
         <div className="md:shadow border border-black/5 rounded w-full md:w-[500px] flex justify-center p-2 ">
           <img
             src={products.image}
@@ -109,6 +113,8 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      </div>
+      <Footer/>
     </>
   );
 };
