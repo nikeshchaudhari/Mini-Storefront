@@ -52,3 +52,4 @@ $ npm run dev
 ```
 ## ScreenShot
 
+![alt text](mini-storefront.vercel.app_.png)
