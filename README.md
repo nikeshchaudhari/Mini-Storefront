@@ -59,4 +59,3 @@ $ npm run dev
 ![alt text](<mini-storefront.vercel.app_home (5).png>)
 ![alt text](<mini-storefront.vercel.app_home (6).png>)
 
-<p style="align-center">Thank You</p>
