@@ -15,8 +15,21 @@ Link : https://mini-storefront.vercel.app/
 • User can view details of an item<br>
 • User can show total price in cart<br>
 
-1. **Clone the repository**
+##What technologies were used?
+•react.js(npm create vite@latest)
+•react-dom-router
+•Tailwind Css
+•State Management using <strong> Zustand </strong>
+##src/
+├── app/ 
 
-```bash
-git clone https://github.com/your-username/mini-storefront.git
-cd mini-storefront
+├── components/ # UI components like Navbar, Slider
+
+├── store/ # Zustand (e.g., cartStore)
+
+├── pages/ # Pages like Home, ProductDetails, Cart
+
+├── App.jsx # Main application and routes
+
+└── main.jsx # App entry poin
+
