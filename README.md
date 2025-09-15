@@ -1,15 +1,19 @@
-# React + Vite
+
 
 # Mini Store
 
 A small e-commerce storefront built with React that lists products, allows filtering and supports a minimal cart flow.
 
 --------------------------------------------------
-# Live Demo
+## Live Demo
 Link : https://mini-storefront.vercel.app/
 
-## How to Run the Project
-npm run dev
+## Features
+• Beauty UI similar to ecommerce website
+• Fully responsive and mobile friendly
+• User can add items to cart
+• User can view details of an item
+• User can show total price in cart
 
 1. **Clone the repository**
 
