@@ -52,4 +52,5 @@ $ npm run dev
 ```
 ## ScreenShot
 
-![alt text](mini-storefront.vercel.app_.png)
+![alt text](<mini-storefront.vercel.app_home (1).png>)
+![alt text](<mini-storefront.vercel.app_home (2).png>)
