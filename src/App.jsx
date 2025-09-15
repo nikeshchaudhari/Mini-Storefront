@@ -5,12 +5,16 @@ import Home from "./Pages/Home";
 import Catalog from "./Pages/Catalog";
 import ProductDetails from "./Pages/ProductDetails";
 import { ToastContainer, toast } from "react-toastify";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 const myRouter = createBrowserRouter([
   { path: "*", Component: Error },
   { path: "/", Component: Home },
   { path: "/home", Component: Home },
   { path: "/catalog", Component: Catalog },
   { path: "/product-details/:id", Component: ProductDetails },
+  {path:"/about",Component:About},
+  {path:"/contact-us",Component:Contact}
 ]);
 const App = () => {
   const [loading, setLoading] = useState(true);
