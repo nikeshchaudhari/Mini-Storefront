@@ -7,6 +7,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import { ToastContainer, toast } from "react-toastify";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import { Helmet } from "react-helmet";
 const myRouter = createBrowserRouter([
   { path: "*", Component: Error },
   { path: "/", Component: Home },
@@ -35,6 +36,13 @@ const App = () => {
   }
   return (
     <>
+   <Helmet>
+    <title>Mini Store || Ecommerce Plateform 
+    </title>
+    <meta name="description" content="Mini store are selling product for affordable price" />
+    <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
+   </Helmet>
+   
       <RouterProvider router={myRouter} />
       <ToastContainer />
     </>

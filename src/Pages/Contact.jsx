@@ -4,10 +4,18 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { Footer } from "./Footer";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
     <>
+    
+    <Helmet>
+    <title> Contact-Us |  Mini Store
+    </title>
+    <meta name="description" content="Mini store are selling product for affordable price" />
+    <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
+   </Helmet>
       <Navbar />
       <div>
          <h1 className="text-center text-[20px] md:text-[30px] font-bold mt-5 italic">Contact Us</h1>

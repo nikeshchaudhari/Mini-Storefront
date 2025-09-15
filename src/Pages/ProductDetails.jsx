@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { toast } from "react-toastify";
 import { Footer } from "./Footer";
+import { Helmet } from "react-helmet";
 const ProductDetails = () => {
   const { id } = useParams();
   console.log(id[0]);
@@ -56,6 +57,13 @@ const ProductDetails = () => {
   };
   return (
     <>
+     <Helmet>
+    <title> {products.title} |  Mini Store
+    </title>
+    <meta name="description" content="Mini store are selling product for affordable price" />
+    <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
+   </Helmet>
+   
       <Navbar />
       <div className="min-h-screen">
 

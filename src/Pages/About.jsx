@@ -2,10 +2,18 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import Typewriter from 'typewriter-effect';
 import { Footer } from "./Footer";
+import { Helmet } from "react-helmet";
 
 const About = () => {
   return (
     <>
+    <Helmet>
+    <title> About-Us |  Mini Store
+    </title>
+    <meta name="description" content="Mini store are selling product for affordable price" />
+    <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
+   </Helmet>
+
       <Navbar />
       <div className="overflow-hidden min-h-screen">
         <h1 className="text-center mt-5 text-[20px] md:text-[30px] italic font-bold">

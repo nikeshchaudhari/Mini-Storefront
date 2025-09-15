@@ -4,6 +4,7 @@ import Sidebar from "../Components/Sidebar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "./Footer";
+import { Helmet } from "react-helmet";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
@@ -52,6 +53,13 @@ const Catalog = () => {
   const totalPages = Math.ceil(filterItems.length / rowPage);
   return (
     <>
+    <Helmet>
+    <title>Catalog
+    </title>
+    <meta name="description" content="Mini store are selling product for affordable price" />
+    <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
+   </Helmet>
+   
       <Navbar />
       <div>
         <h1 className="text-center mt-5 text-[20px] md:text-[30px] font-bold italic">
