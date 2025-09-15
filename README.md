@@ -9,11 +9,11 @@ A small e-commerce storefront built with React that lists products, allows filte
 Link : https://mini-storefront.vercel.app/
 
 ## Features
-• Beauty UI similar to ecommerce website
-• Fully responsive and mobile friendly
-• User can add items to cart
-• User can view details of an item
-• User can show total price in cart
+• Beauty UI similar to ecommerce website <br>
+• Fully responsive and mobile friendly <br>
+• User can add items to cart <br>
+• User can view details of an item<br>
+• User can show total price in cart<br>
 
 1. **Clone the repository**
 
