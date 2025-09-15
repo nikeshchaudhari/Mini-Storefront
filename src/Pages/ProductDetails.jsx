@@ -44,14 +44,13 @@ const ProductDetails = () => {
     setQuantity((sub) => Math.max(sub - 1, 1));
   };
   const handleAddCart = () => {
-    addCart({ ...products, quantity });
-    console.log(quantity);
-
     const alreadyAdd = cart.find((f) => f.id === products.id);
     if (alreadyAdd) {
       toast.error("Already Add Products..");
     } else {
       toast.success("Add to cart");
+      addCart({ ...products, quantity });
+      console.log(quantity);
     }
   };
   return (
