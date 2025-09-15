@@ -15,12 +15,12 @@ Link : https://mini-storefront.vercel.app/
 • User can view details of an item<br>
 • User can show total price in cart<br>
 
-##What technologies were used?
+## What technologies were used?
 •react.js(npm create vite@latest)
 •react-dom-router
 •Tailwind Css
 •State Management using <strong> Zustand </strong>
-##src/
+## src/
 ├── app/ 
 
 ├── components/ # UI components like Navbar, Slider
