@@ -15,11 +15,14 @@ const Home = () => {
     <meta name="description" content="Mini store are selling product for affordable price" />
     <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
    </Helmet>
-   <Navbar/>
+   <div className='min-h-screen h-full'>
+    <Navbar/>
    <Slider/>
    <TrendProduct/>
    <Cart/>
    <Footer/>
+   </div>
+ 
    </>
   )
 }
