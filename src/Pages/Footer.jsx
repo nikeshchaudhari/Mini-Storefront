@@ -26,8 +26,8 @@ export const Footer = () => {
             <div className="flex flex-col gap-2 text-start ">
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/catalog">Catalog</NavLink>
-              <NavLink to="/">About Us</NavLink>
-              <NavLink to="/">Contact Us</NavLink>
+              <NavLink to="/about">About Us</NavLink>
+              <NavLink to="/contact-us">Contact Us</NavLink>
             </div>
           </div>
           <div className="text-center md:text-left">
