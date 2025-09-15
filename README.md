@@ -33,12 +33,13 @@ Link : https://mini-storefront.vercel.app/
 
 └── main.jsx # App entry poin
 
-##Clone Project ..
+## Clone Project ..
 ```bash
 # Clone this repository
 $ https://github.com/nikeshchaudhari/Mini-Storefront.git
 # Go into the repository
 $ cd Mini-Storefront
+exit 0
 
 Then you can install the dependencies using NPM:
 
