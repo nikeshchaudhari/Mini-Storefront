@@ -26,7 +26,7 @@ const Cart = ({ cartOpen, cartClose }) => {
             : "translate-y-full"
         }`}
       >
-        <div className="h-[750px] md:h-[88vh] lg:h-[80vh]">
+        <div className="h-[320px] md:h-[88vh] lg:h-[80vh]">
           <div className="flex justify-between px-5 mt-5">
             <h1>Shopping Cart</h1>
             <CloseIcon
@@ -42,7 +42,7 @@ const Cart = ({ cartOpen, cartClose }) => {
           ) : (
             <>
               {cart.map((item) => (
-                <div key={item.id} className="flex  mt-5">
+                <div key={item.id} className="flex  mt-5 justify-between">
                   <div className="border w-20 h-20 flex justify-center p-2 mx-5">
                     <img src={item.image} alt={item.title} className="w-15" />
                   </div>
@@ -55,7 +55,7 @@ const Cart = ({ cartOpen, cartClose }) => {
                   </div>
                   <div>
                     <CloseIcon
-                      className="cursor-pointer"
+                      className="cursor-pointer mx-2"
                       onClick={() => removeCart(item.id)}
                     />
                   </div>
