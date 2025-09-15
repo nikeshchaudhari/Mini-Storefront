@@ -2,7 +2,7 @@ import React from "react";
 import cartStore from "../store/store";
 import CloseIcon from "@mui/icons-material/Close";
 const Cart = ({ cartOpen, cartClose }) => {
-  const { cart, removeCart, updateCart, clearCart } = cartStore();
+  const { cart, removeCart } = cartStore();
 
   const totalPrice = cart.reduce((sum, items) => 
    sum + items.price * items.quantity,0
