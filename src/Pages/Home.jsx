@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar'
 import Slider from '../Components/Slider'
 import TrendProduct from '../Components/TrendProduct'
 import Cart from './Cart'
+import { Footer } from './Footer'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
    <Slider/>
    <TrendProduct/>
    <Cart/>
+   <Footer/>
    </>
   )
 }
