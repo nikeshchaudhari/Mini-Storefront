@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "./Footer";
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
@@ -53,7 +54,7 @@ const Catalog = () => {
     <>
       <Navbar />
       <div>
-        <h1 className="text-center mt-5 text-[30px] font-bold italic">
+        <h1 className="text-center mt-5 text-[20px] md:text-[30px] font-bold italic">
           Product
         </h1>
         <div className="flex mt-10 mr-5">
@@ -121,6 +122,7 @@ const Catalog = () => {
           </button>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
