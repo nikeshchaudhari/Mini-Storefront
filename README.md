@@ -33,6 +33,7 @@ Link : https://mini-storefront.vercel.app/
 
 └── main.jsx # App entry poin
 
+##Clone Project ..
 ```bash
 # Clone this repository
 $ https://github.com/nikeshchaudhari/Mini-Storefront.git
