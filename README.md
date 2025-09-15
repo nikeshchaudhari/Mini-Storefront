@@ -16,9 +16,9 @@ Link : https://mini-storefront.vercel.app/
 • User can show total price in cart<br>
 
 ## What technologies were used?
-•react.js(npm create vite@latest)
-•react-dom-router
-•Tailwind Css
+•react.js(npm create vite@latest)<br>
+•react-dom-router<br>
+•Tailwind Css<br>
 •State Management using <strong> Zustand </strong>
 ## src/
 ├── app/ 
