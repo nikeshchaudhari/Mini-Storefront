@@ -50,12 +50,3 @@ $ npm install or npm i
 # Start development server
 $ npm run dev
 ```
-## ScreenShot
-
-![alt text](<mini-storefront.vercel.app_home (1).png>)
-![alt text](<mini-storefront.vercel.app_home (2).png>)
-![alt text](<mini-storefront.vercel.app_home (3).png>)
-![alt text](<mini-storefront.vercel.app_home (4).png>)
-![alt text](<mini-storefront.vercel.app_home (5).png>)
-![alt text](<mini-storefront.vercel.app_home (6).png>)
-
