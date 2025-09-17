@@ -5,10 +5,11 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import cartStore from "../store/store";
 import Cart from "../Pages/Cart";
-
-const Navbar = () => {
+import SearchIcon from "@mui/icons-material/Search";
+const Navbar = ({search,setSearch}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const[cartOpen,setCartOpen]= useState(false)
+  const [cartOpen, setCartOpen] = useState(false);
+  const[showSearch,setShowSearch]=useState(false)
   const cart = cartStore((state) => state.cart);
   const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
   console.log(totalCart);
@@ -22,7 +23,8 @@ const Navbar = () => {
             <h1 className="text-[20px] lg:text-[30px] ">Mini Store</h1>
           </Link>
         </div>
-        <div className="hidden md:flex gap-10  ">
+      
+         <div className="hidden md:flex gap-10 ">
           <NavLink
             to="/home"
             className={({ isActive }) => {
@@ -56,11 +58,24 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </div>
-        <div className="mr-5 md:mr-20 flex gap-5 relative">
-          <LocalMallOutlinedIcon className="cursor-pointer" onClick={()=>setCartOpen(true)}/>
-            <Cart cartOpen={cartOpen} cartClose={()=>setCartOpen(false)}/>
+      
+
+        <div className="mr-5 md:mr-10 flex gap-1 md:gap-5 relative ">
+         <div className="flex items-center">
+         {showSearch &&(
+           <input type="text" className="border w-[150px] md:w-[400px] md:py-1 outline-none mx-1" placeholder="Search Products" onChange={(e)=>setSearch(e.target.value)}/>
+         )}
+           <SearchIcon className="cursor-pointer"   onClick={() => setShowSearch(!showSearch)}/>
+         </div>
+
+          <LocalMallOutlinedIcon
+            className="cursor-pointer"
+            onClick={() => setCartOpen(true)}
+          />
+
+          <Cart cartOpen={cartOpen} cartClose={() => setCartOpen(false)} />
           {totalCart > 0 && (
-            <span className="absolute bottom-4 right-10 md:bottom-3  md:-right-4 rounded-full md:w-full  text-center bg-black text-white">
+            <span className="absolute bottom-4 right-10 md:bottom-3  md:-right-4 md:w-5 w-5 h-5  text-center bg-black text-white flex items-center justify-center" style={{borderRadius:"100%"}}>
               {totalCart}
             </span>
           )}
