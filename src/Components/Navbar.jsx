@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
@@ -10,9 +10,12 @@ const Navbar = ({search,setSearch}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const[showSearch,setShowSearch]=useState(false)
+  const navigate = useNavigate()
   const cart = cartStore((state) => state.cart);
   const totalCart = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
   console.log(totalCart);
+
+
 
   return (
     <>

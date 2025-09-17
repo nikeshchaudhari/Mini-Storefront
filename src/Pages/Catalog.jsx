@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Helmet } from "react-helmet";
 
@@ -17,6 +17,8 @@ const Catalog = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [category, setCategory] = useState("");
   const[search,setSearch]=useState("")
+
+  
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -33,17 +35,17 @@ const Catalog = () => {
     };
     dataFetch();
   }, []);
-  //   filter
+  //   filter Price
   const filterItems = products.filter((item) => {
     const price = item.price;
     console.log(price);
     const min = minPrice === "" ? 0 : parseInt(minPrice);
     const max = maxPrice === "" ? Infinity : parseInt(maxPrice);
     const categoryMatch = category ? item.category === category : true;
-    console.log(categoryMatch);
+    // console.log(categoryMatch);
 
     const matchPrice = price >= min && price <= max;
-    console.log(matchPrice);
+    // console.log(matchPrice);
     
     return matchPrice && categoryMatch;
   });
