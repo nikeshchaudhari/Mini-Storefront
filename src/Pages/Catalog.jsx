@@ -57,7 +57,7 @@ const Catalog = () => {
   return (
     <>
     <Helmet>
-    <title>Catalog || Mini Store </title>
+    <title>Catalog | Mini Store </title>
     <meta name="description" content="Mini store are selling product for affordable price" />
     <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
    </Helmet>
