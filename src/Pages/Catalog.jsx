@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Helmet } from "react-helmet";
 
@@ -16,9 +16,7 @@ const Catalog = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [category, setCategory] = useState("");
-  const[search,setSearch]=useState("")
-
-  
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -35,19 +33,20 @@ const Catalog = () => {
     };
     dataFetch();
   }, []);
-  //   filter Price
+  //   filter
   const filterItems = products.filter((item) => {
     const price = item.price;
     console.log(price);
     const min = minPrice === "" ? 0 : parseInt(minPrice);
     const max = maxPrice === "" ? Infinity : parseInt(maxPrice);
     const categoryMatch = category ? item.category === category : true;
-    // console.log(categoryMatch);
-
+    console.log(categoryMatch);
     const matchPrice = price >= min && price <= max;
-    // console.log(matchPrice);
-    
-    return matchPrice && categoryMatch;
+    console.log(matchPrice);
+
+    const searchMatch = item.title.toLowerCase().includes(search.toLowerCase())
+
+    return matchPrice && categoryMatch && searchMatch;
   });
   //   paginataion
   const indexOfLastItem = currentPage * rowPage;
@@ -55,15 +54,23 @@ const Catalog = () => {
   const currentItems = filterItems.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filterItems.length / rowPage);
 
-  const searchFilter= products.filter((item)=>item.title.toLowerCase().includes(search.toLowerCase()));
+  const searchFilter = products.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     <>
-    <Helmet>
-    <title>Catalog | Mini Store </title>
-    <meta name="description" content="Mini store are selling product for affordable price" />
-    <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
-   </Helmet>
-   
+      <Helmet>
+        <title>Catalog || Mini Store </title>
+        <meta
+          name="description"
+          content="Mini store are selling product for affordable price"
+        />
+        <meta
+          name="keywords"
+          content="ecommerce, ministore,shoping,buy,sell, bestproducts"
+        />
+      </Helmet>
+
       <Navbar search={search} setSearch={setSearch} />
       <div>
         <h1 className="text-center mt-5 text-[20px] md:text-[30px] font-bold italic">
@@ -82,33 +89,50 @@ const Catalog = () => {
             <div className="w-full flex justify-center items-center bg-gray-500/5 h-screen">
               <p className="animate-ping   text-[20px]">Loading..</p>
             </div>
-          ) :searchFilter.length>0?(
-             <div className="grid grid-cols-2 md:grid-cols-4 ml-5 ">
-                {searchFilter.map((items) => (
+          ) : currentItems.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-4 ml-5 ">
+              {currentItems.map((items) => (
+                <div key={items.id} className=" bg-white shadow p-2 mx-2 my-2">
                   <div
-                    key={items.id}
-                    className=" bg-white shadow p-2 mx-2 my-2"
+                    className=" p-2"
+                    onClick={() => navigate(`/product-details/${items.id}`)}
                   >
-                    <div
-                      className=" p-2"
-                      onClick={() => navigate(`/product-details/${items.id}`)}
-                    >
-                      <img
-                        src={items.image}
-                        alt={items.title}
-                        className="w-[200px] h-[200px] cursor-pointer transition transform hover:-translate-y-2  hover:duration-1000 "
-                      />
-                    </div>
-                    <div>
-                      <h3 className="line-clamp-1">{items.title}</h3>
-                      <p>Price : {items.price}</p>
-                      <p>Category : {items.category}</p>
-                    </div>
+                    <img
+                      src={items.image}
+                      alt={items.title}
+                      className="w-[200px] h-[200px] cursor-pointer transition transform hover:-translate-y-2  hover:duration-1000 "
+                    />
                   </div>
-                ))}
-              </div>
-          ):(
-             <p className="col-span-4 text-center w-full ">No products found</p>
+                  <div>
+                    <h3 className="line-clamp-1">{items.title}</h3>
+                    <p>Price : {items.price}</p>
+                    <p>Category : {items.category}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-4 ml-5 ">
+              {currentItems.map((items) => (
+                <div key={items.id} className=" bg-white shadow p-2 mx-2 my-2">
+                  <div
+                    className=" p-2"
+                    onClick={() => navigate(`/product-details/${items.id}`)}
+                  >
+                    <img
+                      src={items.image}
+                      alt={items.title}
+                      className="w-[200px] h-[200px] cursor-pointer transition transform hover:-translate-y-2  hover:duration-1000 "
+                    />
+                  </div>
+                  <div>
+                    <h3 className="line-clamp-1">{items.title}</h3>
+                    <p>Price : {items.price}</p>
+                    <p>Category : {items.category}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
         </div>
         <div className="flex justify-end mx-12 mb-5 gap-5 items-center">
@@ -134,7 +158,7 @@ const Catalog = () => {
           </button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
