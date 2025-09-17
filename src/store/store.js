@@ -33,20 +33,7 @@ const cartStore = create((set) => ({
       return { cart: newCart };
     });
   },
-  updateCart: (id, qty) => {
-    set((state) => {
-      const newCart = state.cart.map((p) =>
-        p.id === id ? { ...p, quantity: qty } : p
-      );
-      localStorage.setItem("cart", JSON.stringify(newCart));
-      return { cart: newCart };
-    });
-  },
 
-  clearCart: () => {
-    set({ cart: [] });
-    localStorage.removeItem("cart");
-  },
 }));
 
 export default cartStore;
