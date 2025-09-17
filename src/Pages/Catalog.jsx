@@ -16,6 +16,7 @@ const Catalog = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [category, setCategory] = useState("");
+  const[search,setSearch]=useState("")
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -51,16 +52,17 @@ const Catalog = () => {
   const indexOfFirstItem = indexOfLastItem - rowPage;
   const currentItems = filterItems.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filterItems.length / rowPage);
+
+  const searchFilter= products.filter((item)=>item.title.toLowerCase().includes(search.toLowerCase()));
   return (
     <>
     <Helmet>
-    <title>Catalog
-    </title>
+    <title>Catalog || Mini Store </title>
     <meta name="description" content="Mini store are selling product for affordable price" />
     <meta name="keywords" content="ecommerce, ministore,shoping,buy,sell, bestproducts" />
    </Helmet>
    
-      <Navbar />
+      <Navbar search={search} setSearch={setSearch} />
       <div>
         <h1 className="text-center mt-5 text-[20px] md:text-[30px] font-bold italic">
           Product
@@ -78,10 +80,9 @@ const Catalog = () => {
             <div className="w-full flex justify-center items-center bg-gray-500/5 h-screen">
               <p className="animate-ping   text-[20px]">Loading..</p>
             </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-2 md:grid-cols-4 ml-5 ">
-                {currentItems.map((items) => (
+          ) :searchFilter.length>0?(
+             <div className="grid grid-cols-2 md:grid-cols-4 ml-5 ">
+                {searchFilter.map((items) => (
                   <div
                     key={items.id}
                     className=" bg-white shadow p-2 mx-2 my-2"
@@ -104,7 +105,8 @@ const Catalog = () => {
                   </div>
                 ))}
               </div>
-            </>
+          ):(
+             <p className="col-span-4 text-center w-full ">No products found</p>
           )}
         </div>
         <div className="flex justify-end mx-12 mb-5 gap-5 items-center">
